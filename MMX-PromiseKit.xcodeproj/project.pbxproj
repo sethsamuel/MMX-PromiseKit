@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3C97A8658AD732EFB07FD4D3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9303D1E0E6C5A97CFBB98CCE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FA238F771B8E73AB00DFE4E1 /* MMX-PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA238F761B8E73AB00DFE4E1 /* MMX-PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FA238F7D1B8E73AB00DFE4E1 /* MMX-PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA238F711B8E73AB00DFE4E1 /* MMX-PromiseKit.framework */; };
+		FA238F771B8E73AB00DFE4E1 /* MMX_PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA238F761B8E73AB00DFE4E1 /* MMX_PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA238F7D1B8E73AB00DFE4E1 /* MMX_PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA238F711B8E73AB00DFE4E1 /* MMX_PromiseKit.framework */; };
 		FA238F841B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA238F831B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift */; };
 		FA238FBC1B8E796100DFE4E1 /* MMX-PromiseKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FA238FBB1B8E796100DFE4E1 /* MMX-PromiseKit.podspec */; };
 		FA238FBE1B8E7B0400DFE4E1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA238FBD1B8E7B0400DFE4E1 /* LICENSE */; };
+		FA238FC11B8E7C8A00DFE4E1 /* MMX+PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */; };
+		FA238FC21B8E7C8A00DFE4E1 /* MMX+PromiseKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,14 +31,16 @@
 		4DE622C1FF92C9491491D079 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9303D1E0E6C5A97CFBB98CCE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18091BF1B4131FCDF67247C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		FA238F711B8E73AB00DFE4E1 /* MMX-PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "MMX-PromiseKit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA238F711B8E73AB00DFE4E1 /* MMX_PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMX_PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA238F751B8E73AB00DFE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA238F761B8E73AB00DFE4E1 /* MMX-PromiseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMX-PromiseKit.h"; sourceTree = "<group>"; };
+		FA238F761B8E73AB00DFE4E1 /* MMX_PromiseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMX_PromiseKit.h; sourceTree = "<group>"; };
 		FA238F7C1B8E73AB00DFE4E1 /* MMX-PromiseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MMX-PromiseKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA238F821B8E73AB00DFE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA238F831B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMX_PromiseKitTests.swift; sourceTree = "<group>"; };
 		FA238FBB1B8E796100DFE4E1 /* MMX-PromiseKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MMX-PromiseKit.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FA238FBD1B8E7B0400DFE4E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMX+PromiseKit.h"; sourceTree = "<group>"; };
+		FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMX+PromiseKit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA238F7D1B8E73AB00DFE4E1 /* MMX-PromiseKit.framework in Frameworks */,
+				FA238F7D1B8E73AB00DFE4E1 /* MMX_PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +96,7 @@
 		FA238F721B8E73AB00DFE4E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA238F711B8E73AB00DFE4E1 /* MMX-PromiseKit.framework */,
+				FA238F711B8E73AB00DFE4E1 /* MMX_PromiseKit.framework */,
 				FA238F7C1B8E73AB00DFE4E1 /* MMX-PromiseKitTests.xctest */,
 			);
 			name = Products;
@@ -101,8 +105,10 @@
 		FA238F731B8E73AB00DFE4E1 /* MMX-PromiseKit */ = {
 			isa = PBXGroup;
 			children = (
-				FA238F761B8E73AB00DFE4E1 /* MMX-PromiseKit.h */,
+				FA238F761B8E73AB00DFE4E1 /* MMX_PromiseKit.h */,
 				FA238F741B8E73AB00DFE4E1 /* Supporting Files */,
+				FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */,
+				FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */,
 			);
 			path = "MMX-PromiseKit";
 			sourceTree = "<group>";
@@ -139,7 +145,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA238F771B8E73AB00DFE4E1 /* MMX-PromiseKit.h in Headers */,
+				FA238FC11B8E7C8A00DFE4E1 /* MMX+PromiseKit.h in Headers */,
+				FA238F771B8E73AB00DFE4E1 /* MMX_PromiseKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +170,7 @@
 			);
 			name = "MMX-PromiseKit";
 			productName = "MMX-PromiseKit";
-			productReference = FA238F711B8E73AB00DFE4E1 /* MMX-PromiseKit.framework */;
+			productReference = FA238F711B8E73AB00DFE4E1 /* MMX_PromiseKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FA238F7B1B8E73AB00DFE4E1 /* MMX-PromiseKitTests */ = {
@@ -276,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA238FC21B8E7C8A00DFE4E1 /* MMX+PromiseKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +327,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -367,6 +376,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -398,7 +408,7 @@
 				INFOPLIST_FILE = "MMX-PromiseKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MMX_PromiseKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -414,7 +424,7 @@
 				INFOPLIST_FILE = "MMX-PromiseKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MMX_PromiseKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
