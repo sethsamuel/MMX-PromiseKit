@@ -15,23 +15,23 @@
 
 @implementation MMXChannel (PromiseKit)
 /**
- @return int totalCount, NSArray *channels
+ @return NSNumber totalCount, NSArray *channels
  **/
 +(PMKPromise *)channelsStartingWith:(NSString *)name limit:(int)limit{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
         [MMXChannel channelsStartingWith:name limit:limit success:^(int totalCount, NSArray *channels) {
-            resolve(PMKManifold(totalCount, channels));
+            resolve(PMKManifold(@(totalCount), channels));
         } failure:resolve];
     }];
 }
 
 /**
- @return int totalCount, NSArray *channels
+ @return NSNumber totalCount, NSArray *channels
  **/
 +(PMKPromise*) findByTags:(NSSet*)tags{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
         [MMXChannel findByTags:tags success:^(int totalCount, NSArray *channels) {
-            resolve(PMKManifold(totalCount, channels));
+            resolve(PMKManifold(@(totalCount), channels));
         } failure:resolve];
     }];
 }

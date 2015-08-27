@@ -32,34 +32,34 @@
     NSArray *stubChannels = @[@{},@{}];
     
     id mock = OCMClassMock([MMXChannel class]);
-    OCMStub([mock channelsStartingWith:[OCMArg any] limit:0]).andDo(^(NSInvocation *invocation) {
+    [OCMStub([mock channelsStartingWith:[OCMArg any] limit:100 success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
         void (^successBlock)(int count, NSArray *channels) = nil;
-        [invocation getArgument:&successBlock atIndex:0];
+        [invocation getArgument:&successBlock atIndex:4];
         successBlock(2, stubChannels);
-    });
+    }];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"channelsStartingWith"];
     // This is an example of a functional test case.
     [MMXChannel channelsStartingWith:@"" limit:100]
-    .then(^(int count, NSArray* channels){
-        XCTAssertEqual(count, 2);
+    .then(^(NSNumber *count, NSArray* channels){
+        XCTAssertEqual(count.integerValue, 2);
         XCTAssertNotNil(channels);
         XCTAssertEqualObjects(channels, stubChannels);
+
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+      //Ignore any errors from authentication
     })
     .finally(^(){
-        [expectation fulfill];
     });
     
-    [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         XCTAssertNil(error);
     }];
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 @end
