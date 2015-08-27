@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3C97A8658AD732EFB07FD4D3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9303D1E0E6C5A97CFBB98CCE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		75F1F35CBA3F12A5C14F2A75 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9303D1E0E6C5A97CFBB98CCE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CEBB47DAE59555832CEC0A10 /* Pods_MMX_PromiseKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D54FD053F9922D3A89BD7D8 /* Pods_MMX_PromiseKitTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F5C056C37D5DF990D811FCA9 /* Pods_MMX_PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E90285ACC86463D9C735F70 /* Pods_MMX_PromiseKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA238F771B8E73AB00DFE4E1 /* MMX_PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA238F761B8E73AB00DFE4E1 /* MMX_PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA238F7D1B8E73AB00DFE4E1 /* MMX_PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA238F711B8E73AB00DFE4E1 /* MMX_PromiseKit.framework */; };
-		FA238F841B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA238F831B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift */; };
 		FA238FBC1B8E796100DFE4E1 /* MMX-PromiseKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FA238FBB1B8E796100DFE4E1 /* MMX-PromiseKit.podspec */; };
 		FA238FBE1B8E7B0400DFE4E1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA238FBD1B8E7B0400DFE4E1 /* LICENSE */; };
 		FA238FC11B8E7C8A00DFE4E1 /* MMX+PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */; };
 		FA238FC21B8E7C8A00DFE4E1 /* MMX+PromiseKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */; };
+		FA4FC5CE1B8EA1EF00CF0441 /* MMX-PromistKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4FC5CD1B8EA1EF00CF0441 /* MMX-PromistKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,19 +31,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E7C23F3EE13D876A4336FA1 /* Pods-MMX-PromiseKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMX-PromiseKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMX-PromiseKitTests/Pods-MMX-PromiseKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		28E54F25292CC91CEBB74CB1 /* Pods-MMX-PromiseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMX-PromiseKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMX-PromiseKitTests/Pods-MMX-PromiseKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		4DE622C1FF92C9491491D079 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4E90285ACC86463D9C735F70 /* Pods_MMX_PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMX_PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		785375B0A79AF06976A67F94 /* Pods-MMX-PromiseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMX-PromiseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMX-PromiseKit/Pods-MMX-PromiseKit.release.xcconfig"; sourceTree = "<group>"; };
 		9303D1E0E6C5A97CFBB98CCE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9709C9E9819486022974C4FC /* Pods-MMX-PromiseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMX-PromiseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMX-PromiseKit/Pods-MMX-PromiseKit.debug.xcconfig"; sourceTree = "<group>"; };
+		9D54FD053F9922D3A89BD7D8 /* Pods_MMX_PromiseKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMX_PromiseKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18091BF1B4131FCDF67247C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FA238F711B8E73AB00DFE4E1 /* MMX_PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMX_PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA238F751B8E73AB00DFE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA238F761B8E73AB00DFE4E1 /* MMX_PromiseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMX_PromiseKit.h; sourceTree = "<group>"; };
 		FA238F7C1B8E73AB00DFE4E1 /* MMX-PromiseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MMX-PromiseKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA238F821B8E73AB00DFE4E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA238F831B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMX_PromiseKitTests.swift; sourceTree = "<group>"; };
 		FA238FBB1B8E796100DFE4E1 /* MMX-PromiseKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MMX-PromiseKit.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FA238FBD1B8E7B0400DFE4E1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMX+PromiseKit.h"; sourceTree = "<group>"; };
 		FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMX+PromiseKit.m"; sourceTree = "<group>"; };
+		FA4FC5CD1B8EA1EF00CF0441 /* MMX-PromistKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMX-PromistKit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C97A8658AD732EFB07FD4D3 /* Pods.framework in Frameworks */,
+				F5C056C37D5DF990D811FCA9 /* Pods_MMX_PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +67,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA238F7D1B8E73AB00DFE4E1 /* MMX_PromiseKit.framework in Frameworks */,
+				75F1F35CBA3F12A5C14F2A75 /* Pods.framework in Frameworks */,
+				CEBB47DAE59555832CEC0A10 /* Pods_MMX_PromiseKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				9303D1E0E6C5A97CFBB98CCE /* Pods.framework */,
+				4E90285ACC86463D9C735F70 /* Pods_MMX_PromiseKit.framework */,
+				9D54FD053F9922D3A89BD7D8 /* Pods_MMX_PromiseKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -76,6 +90,10 @@
 			children = (
 				A18091BF1B4131FCDF67247C /* Pods.debug.xcconfig */,
 				4DE622C1FF92C9491491D079 /* Pods.release.xcconfig */,
+				9709C9E9819486022974C4FC /* Pods-MMX-PromiseKit.debug.xcconfig */,
+				785375B0A79AF06976A67F94 /* Pods-MMX-PromiseKit.release.xcconfig */,
+				1E7C23F3EE13D876A4336FA1 /* Pods-MMX-PromiseKitTests.debug.xcconfig */,
+				28E54F25292CC91CEBB74CB1 /* Pods-MMX-PromiseKitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -124,8 +142,8 @@
 		FA238F801B8E73AB00DFE4E1 /* MMX-PromiseKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA238F831B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift */,
 				FA238F811B8E73AB00DFE4E1 /* Supporting Files */,
+				FA4FC5CD1B8EA1EF00CF0441 /* MMX-PromistKit.m */,
 			);
 			path = "MMX-PromiseKitTests";
 			sourceTree = "<group>";
@@ -177,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA238F8A1B8E73AB00DFE4E1 /* Build configuration list for PBXNativeTarget "MMX-PromiseKitTests" */;
 			buildPhases = (
+				A7B009D0A06F87CBA47F63B4 /* Check Pods Manifest.lock */,
 				FA238F781B8E73AB00DFE4E1 /* Sources */,
 				FA238F791B8E73AB00DFE4E1 /* Frameworks */,
 				FA238F7A1B8E73AB00DFE4E1 /* Resources */,
+				4B3992B6F733B552EAF56029 /* Embed Pods Frameworks */,
+				77818F959D309B333F22CF91 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,6 +282,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		4B3992B6F733B552EAF56029 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMX-PromiseKitTests/Pods-MMX-PromiseKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6B6579A74D0A9CBF5BC265A4 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,7 +309,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMX-PromiseKit/Pods-MMX-PromiseKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77818F959D309B333F22CF91 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMX-PromiseKitTests/Pods-MMX-PromiseKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7B009D0A06F87CBA47F63B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -291,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA238F841B8E73AB00DFE4E1 /* MMX_PromiseKitTests.swift in Sources */,
+				FA4FC5CE1B8EA1EF00CF0441 /* MMX-PromistKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +465,7 @@
 		};
 		FA238F881B8E73AB00DFE4E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A18091BF1B4131FCDF67247C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 9709C9E9819486022974C4FC /* Pods-MMX-PromiseKit.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -415,7 +481,7 @@
 		};
 		FA238F891B8E73AB00DFE4E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DE622C1FF92C9491491D079 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 785375B0A79AF06976A67F94 /* Pods-MMX-PromiseKit.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -431,6 +497,7 @@
 		};
 		FA238F8B1B8E73AB00DFE4E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E7C23F3EE13D876A4336FA1 /* Pods-MMX-PromiseKitTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -448,6 +515,7 @@
 		};
 		FA238F8C1B8E73AB00DFE4E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28E54F25292CC91CEBB74CB1 /* Pods-MMX-PromiseKitTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

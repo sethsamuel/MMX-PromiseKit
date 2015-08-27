@@ -58,6 +58,7 @@ PODS:
     - Magnet-XMPPFramework (= 3.6.10)
     - Mantle (= 1.5.4)
     - MDMCoreData (= 1.5.0)
+  - OCMock (3.1.5)
   - OMGHTTPURLRQ (2.1.3):
     - OMGHTTPURLRQ/RQ (= 2.1.3)
   - OMGHTTPURLRQ/FormURLEncode (2.1.3)
@@ -80,6 +81,7 @@ PODS:
 
 DEPENDENCIES:
   - MMX (~> 1.5)
+  - OCMock (~> 3.1)
   - PromiseKit (~> 2.0)
 
 SPEC CHECKSUMS:
@@ -89,6 +91,7 @@ SPEC CHECKSUMS:
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MDMCoreData: 402f754cda90865026a209243f1667824e775649
   MMX: eab6223aa2c5c1d9a4347a24fe0f62f033c4f02f
+  OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: 9c92257e39abf4b634533d44268592dfc6e4b5c2
 
