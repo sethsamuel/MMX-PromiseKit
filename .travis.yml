@@ -16,6 +16,6 @@ install:
   - pod install
 
 script:
-  - xctool -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - xctool -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests test -only MMX-PromiseKitTests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 after_success: slather
