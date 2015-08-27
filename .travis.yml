@@ -14,8 +14,13 @@ install:
   - gem install cocoapods -v '0.38'
   - pod --version
   - pod install
+  -
+
+before_script:
+  - brew update
+  - brew upgrade xctool
 
 script:
-- xctool -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests -sdk iphonesimulator test -skip-deps CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - xctool -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests -sdk iphonesimulator test -skip-deps CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 after_success: slather
