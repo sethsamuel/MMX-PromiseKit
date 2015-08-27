@@ -1,3 +1,6 @@
 language: objective-c
 xcode_project: MMX-PromiseKit.xcodeproj
 xcode_scheme: MMX-PromiseKitTests
+
+before_install:
+  - gem install cocoapods -v '0.38.0'
