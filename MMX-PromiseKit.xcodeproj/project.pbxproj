@@ -517,6 +517,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E7C23F3EE13D876A4336FA1 /* Pods-MMX-PromiseKitTests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -537,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 28E54F25292CC91CEBB74CB1 /* Pods-MMX-PromiseKitTests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
