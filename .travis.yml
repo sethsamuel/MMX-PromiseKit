@@ -1,7 +1,7 @@
 language: objective-c
 xcode_workspace: MMX-PromiseKit.xcworkspace
 xcode_scheme: MMX-PromiseKitTests
-osx_image: xcode611
+osx_image: xcode6.4
 
 cache:
   - bundler
