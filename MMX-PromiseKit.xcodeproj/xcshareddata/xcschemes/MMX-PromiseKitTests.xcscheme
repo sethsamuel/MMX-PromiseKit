@@ -37,11 +37,6 @@
                BlueprintName = "MMX-PromiseKitTests"
                ReferencedContainer = "container:MMX-PromiseKit.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "MMX_PromiseKit">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
