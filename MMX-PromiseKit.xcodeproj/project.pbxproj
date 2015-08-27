@@ -22,7 +22,6 @@
 		FA4FC5D21B8EAA3900CF0441 /* .coveralls.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5D11B8EAA3900CF0441 /* .coveralls.yml */; };
 		FA4FC5D41B8EAC0600CF0441 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5D31B8EAC0600CF0441 /* Gemfile */; };
 		FA4FC5D61B8EAC5100CF0441 /* .slather.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5D51B8EAC5100CF0441 /* .slather.yml */; };
-		FA67EF8A1B8F2AD40076FDFD /* MMX_PromiseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA238F711B8E73AB00DFE4E1 /* MMX_PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +33,6 @@
 			remoteInfo = "MMX-PromiseKit";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FA67EF891B8F2AAD0076FDFD /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FA67EF8A1B8F2AD40076FDFD /* MMX_PromiseKit.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E7C23F3EE13D876A4336FA1 /* Pods-MMX-PromiseKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMX-PromiseKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMX-PromiseKitTests/Pods-MMX-PromiseKitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,7 +208,6 @@
 			buildConfigurationList = FA238F8A1B8E73AB00DFE4E1 /* Build configuration list for PBXNativeTarget "MMX-PromiseKitTests" */;
 			buildPhases = (
 				A7B009D0A06F87CBA47F63B4 /* Check Pods Manifest.lock */,
-				FA67EF891B8F2AAD0076FDFD /* CopyFiles */,
 				FA238F781B8E73AB00DFE4E1 /* Sources */,
 				FA238F791B8E73AB00DFE4E1 /* Frameworks */,
 				FA238F7A1B8E73AB00DFE4E1 /* Resources */,
