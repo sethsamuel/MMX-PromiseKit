@@ -1,0 +1,3 @@
+language: objective-c
+xcode_project: MMX-PromiseKit.xcodeproj
+xcode_scheme: MMX-PromiseKitTests

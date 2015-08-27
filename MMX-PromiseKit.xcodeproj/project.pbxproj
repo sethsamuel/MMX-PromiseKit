@@ -18,6 +18,7 @@
 		FA238FC11B8E7C8A00DFE4E1 /* MMX+PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */; };
 		FA238FC21B8E7C8A00DFE4E1 /* MMX+PromiseKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */; };
 		FA4FC5CE1B8EA1EF00CF0441 /* MMX-PromistKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4FC5CD1B8EA1EF00CF0441 /* MMX-PromistKit.m */; };
+		FA4FC5D01B8EA98000CF0441 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5CF1B8EA98000CF0441 /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMX+PromiseKit.h"; sourceTree = "<group>"; };
 		FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMX+PromiseKit.m"; sourceTree = "<group>"; };
 		FA4FC5CD1B8EA1EF00CF0441 /* MMX-PromistKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MMX-PromistKit.m"; sourceTree = "<group>"; };
+		FA4FC5CF1B8EA98000CF0441 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		FA238F671B8E73AB00DFE4E1 = {
 			isa = PBXGroup;
 			children = (
+				FA4FC5CF1B8EA98000CF0441 /* .travis.yml */,
 				FA238FBD1B8E7B0400DFE4E1 /* LICENSE */,
 				FA238F731B8E73AB00DFE4E1 /* MMX-PromiseKit */,
 				FA238F801B8E73AB00DFE4E1 /* MMX-PromiseKitTests */,
@@ -252,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4FC5D01B8EA98000CF0441 /* .travis.yml in Resources */,
 				FA238FBE1B8E7B0400DFE4E1 /* LICENSE in Resources */,
 				FA238FBC1B8E796100DFE4E1 /* MMX-PromiseKit.podspec in Resources */,
 			);
