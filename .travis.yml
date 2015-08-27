@@ -3,4 +3,8 @@ xcode_project: MMX-PromiseKit.xcodeproj
 xcode_scheme: MMX-PromiseKitTests
 
 before_install:
+  - rvm use $RVM_RUBY_VERSION
   - gem install cocoapods -v '0.38.0'
+
+install: bundle install --without=documentation --path ../travis_bundle_dir
+after_success: slather
