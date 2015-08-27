@@ -20,6 +20,6 @@ install:
   - xctool --version
 
 script:
-  - xctool -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests -sdk iphonesimulator test -skip-deps CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - xctool -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests -sdk iphonesimulator build test -skip-deps CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 after_success: slather
