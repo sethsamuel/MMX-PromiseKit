@@ -15,12 +15,11 @@ install:
   - pod --version
   - pod install
 #  - git clone https://github.com/facebook/xctool.git
-
-before_script:
   - brew update
   - brew upgrade xctool
+  - xctool --version
 
 script:
-  - xctool/xctool.sh -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests -sdk iphonesimulator test -skip-deps CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - xctool -workspace MMX-PromiseKit.xcworkspace -scheme MMX-PromiseKitTests -sdk iphonesimulator test -skip-deps CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 after_success: slather
