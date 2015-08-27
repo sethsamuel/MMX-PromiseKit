@@ -9,6 +9,20 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "732FC8EA8827B550CFD7F9ECFE515BE3"
+               BuildableName = "Pods_MMX_PromiseKitTests.framework"
+               BlueprintName = "Pods-MMX-PromiseKitTests"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
@@ -79,10 +93,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA238F7B1B8E73AB00DFE4E1"
-            BuildableName = "MMX-PromiseKitTests.xctest"
-            BlueprintName = "MMX-PromiseKitTests"
-            ReferencedContainer = "container:MMX-PromiseKit.xcodeproj">
+            BlueprintIdentifier = "732FC8EA8827B550CFD7F9ECFE515BE3"
+            BuildableName = "Pods_MMX_PromiseKitTests.framework"
+            BlueprintName = "Pods-MMX-PromiseKitTests"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

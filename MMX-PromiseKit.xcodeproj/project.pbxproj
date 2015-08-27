@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C97A8658AD732EFB07FD4D3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9303D1E0E6C5A97CFBB98CCE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		75F1F35CBA3F12A5C14F2A75 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9303D1E0E6C5A97CFBB98CCE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CEBB47DAE59555832CEC0A10 /* Pods_MMX_PromiseKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D54FD053F9922D3A89BD7D8 /* Pods_MMX_PromiseKitTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F5C056C37D5DF990D811FCA9 /* Pods_MMX_PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E90285ACC86463D9C735F70 /* Pods_MMX_PromiseKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA238F771B8E73AB00DFE4E1 /* MMX_PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FA238F761B8E73AB00DFE4E1 /* MMX_PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C97A8658AD732EFB07FD4D3 /* Pods.framework in Frameworks */,
 				F5C056C37D5DF990D811FCA9 /* Pods_MMX_PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,7 +72,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA238F7D1B8E73AB00DFE4E1 /* MMX_PromiseKit.framework in Frameworks */,
-				75F1F35CBA3F12A5C14F2A75 /* Pods.framework in Frameworks */,
 				CEBB47DAE59555832CEC0A10 /* Pods_MMX_PromiseKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
