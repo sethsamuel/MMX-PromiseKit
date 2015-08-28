@@ -45,3 +45,9 @@
 -(PMKPromise*)acceptWithComments:(NSString *)comments;
 -(PMKPromise*)declineWithComments:(NSString *)comments;
 @end
+
+@interface MMXMessage (PromiseKit)
+-(PMKPromise*)send;
+-(PMKPromise*)replyWithContent:(NSDictionary *)content;
+-(PMKPromise*)replyAllWithContent:(NSDictionary *)content;
+@end

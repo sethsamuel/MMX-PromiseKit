@@ -145,3 +145,27 @@
     }];
 }
 @end
+
+@implementation MMXMessage (PromiseKit)
+/**
+ @return void
+ **/
+-(PMKPromise*)send{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+/**
+ @return void
+ **/
+-(PMKPromise*)replyWithContent:(NSDictionary *)content{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+/**
+ @return void
+ **/
+-(PMKPromise*)replyAllWithContent:(NSDictionary *)content{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+@end
