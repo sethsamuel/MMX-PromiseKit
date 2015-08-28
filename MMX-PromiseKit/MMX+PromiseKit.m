@@ -127,3 +127,21 @@
     }];
 }
 @end
+
+@implementation MMXInvite (PromiseKit)
+/**
+ @return void
+ **/
+-(PMKPromise*)acceptWithComments:(NSString *)comments{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+
+/**
+ @return void
+ **/
+-(PMKPromise*)declineWithComments:(NSString *)comments{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+@end

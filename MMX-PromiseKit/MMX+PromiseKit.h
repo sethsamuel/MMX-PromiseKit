@@ -40,3 +40,8 @@
 
 -(PMKPromise*) inviteUser:(MMXUser *)user comments:(NSString *)comments;
 @end
+
+@interface MMXInvite (PromiseKit)
+-(PMKPromise*)acceptWithComments:(NSString *)comments;
+-(PMKPromise*)declineWithComments:(NSString *)comments;
+@end
