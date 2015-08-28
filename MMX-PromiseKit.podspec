@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.summary      = "PromiseKit category for Magnet Messaging (MMX)."
 
   s.description  = <<-DESC
+                    PromiseKit wrappers for Magnet Messaging (MMX) library. All asynchronous methods have been updated to return promises.
                    DESC
 
   s.homepage     = "https://github.com/sethsamuel/MMX-PromiseKit"
@@ -73,7 +74,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@github.com:sethsamuel/MMX-PromiseKit.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/sethsamuel/MMX-PromiseKit.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
