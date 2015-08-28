@@ -53,7 +53,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-      //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -114,7 +113,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -146,7 +144,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -175,7 +172,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -203,7 +199,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -231,7 +226,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -260,7 +254,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -289,7 +282,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -322,7 +314,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -356,7 +347,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -389,7 +379,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -422,7 +411,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -454,7 +442,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -483,7 +470,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -512,7 +498,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -548,7 +533,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -610,7 +594,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -642,7 +625,6 @@
     .catch(^(NSError *error){
         XCTAssertNotNil(error);
         NSLog(@"%@", error);
-        //Ignore any errors from authentication
     })
     .finally(^(){
     });
@@ -656,10 +638,173 @@
 //
 //MMXUser
 //-(PMKPromise*)registerWithCredential:(NSURLCredential *)credential;
+- (void)testRegisterWithCredential {
+    id mock = OCMPartialMock([MMXUser new]);
+    [OCMStub([mock registerWithCredential:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"registerWithCredential"];
+    [mock registerWithCredential:[NSURLCredential new]]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
 //+(PMKPromise*)logInWithCredential:(NSURLCredential *)credential;
+- (void)testLogInWithCredential {
+    MMXUser *stubUser = [MMXUser new];
+    
+    id mock = OCMClassMock([MMXUser class]);
+    [OCMStub([mock logInWithCredential:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(MMXUser *user) = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock(stubUser);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"logInWithCredential"];
+    [MMXUser logInWithCredential:[NSURLCredential new]]
+    .then(^(MMXUser *user){
+        XCTAssertNotNil(user);
+        XCTAssertEqualObjects(user, stubUser);
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
 //+(PMKPromise*)logOut;
+- (void)testLogOut {
+
+    id mock = OCMClassMock([MMXUser class]);
+    [OCMStub([mock logOutWithSuccess:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"logOut"];
+    [MMXUser logOut]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
 //-(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential;
+- (void)changePasswordWithCredential {
+    id mock = OCMPartialMock([MMXUser new]);
+    [OCMStub([mock changePasswordWithCredential:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"changePasswordWithCredential"];
+    [mock changePasswordWithCredential:[NSURLCredential new]]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
 //+(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit;
+- (void)testFindByDisplayName {
+    NSArray *stubUsers = @[[MMXUser new], [MMXUser new]];
+    
+    id mock = OCMClassMock([MMXUser class]);
+    [OCMStub([mock findByDisplayName:[OCMArg any] limit:100 success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(int totalCount, NSArray *users) = nil;
+        [invocation getArgument:&successBlock atIndex:4];
+        successBlock(2, stubUsers);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"findByDisplayName"];
+    [MMXUser findByDisplayName:@"foo" limit:100]
+    .then(^(NSNumber *totalCount, NSArray *users){
+        XCTAssertNotNil(users);
+        XCTAssertEqualObjects(users, stubUsers);
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+
 //+(PMKPromise*)userForUsername:(NSString *)username;
+- (void)testUserForUsername {
+    MMXUser *stubUser = [MMXUser new];
+    
+    id mock = OCMClassMock([MMXUser class]);
+    [OCMStub([mock userForUsername:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(MMXUser *user) = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock(stubUser);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"userForUsername"];
+    [MMXUser userForUsername:@"foo"]
+    .then(^(MMXUser *user){
+        XCTAssertNotNil(user);
+        XCTAssertEqualObjects(user, stubUser);
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
 
 @end

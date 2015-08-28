@@ -233,13 +233,19 @@
  **/
 -(PMKPromise*)registerWithCredential:(NSURLCredential *)credential{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self registerWithCredential:credential success:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 /**
- @return void
+ @return MMXUser *user
  **/
 +(PMKPromise*)logInWithCredential:(NSURLCredential *)credential{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [MMXUser logInWithCredential:credential success:^(MMXUser *user) {
+            resolve(user);
+        } failure:resolve];
     }];
 }
 /**
@@ -247,6 +253,9 @@
  **/
 +(PMKPromise*)logOut{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [MMXUser logOutWithSuccess:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 /**
@@ -254,20 +263,29 @@
  **/
 -(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self changePasswordWithCredential:credential success:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 /**
- @return void
+ @return NSNumber *totalCount, NSArray *users
  **/
 +(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [MMXUser findByDisplayName:displayName limit:limit success:^(int totalCount, NSArray *users) {
+            resolve(PMKManifold(@(totalCount), users));
+        } failure:resolve];
     }];
 }
 /**
- @return void
+ @return MMXUser *user
  **/
 +(PMKPromise*)userForUsername:(NSString *)username{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [MMXUser userForUsername:username success:^(MMXUser *user) {
+            resolve(user);
+        } failure:resolve];
     }];
 }
 @end
