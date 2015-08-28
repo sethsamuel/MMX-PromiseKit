@@ -158,9 +158,120 @@
 }
 
 //-(PMKPromise*)create;
+- (void)testCreate {
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock createWithSuccess:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"create"];
+    [mock create]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
 //-(PMKPromise*)delete;
+- (void)testDelete {
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock deleteWithSuccess:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"delete"];
+    [mock delete]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+
 //-(PMKPromise*)subscribe;
+- (void)testSubscribe {
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock subscribeWithSuccess:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"subscribe"];
+    [mock subscribe]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+
 //-(PMKPromise*)unSubscribe;
+- (void)testUnSubscribe {
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock unSubscribeWithSuccess:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"unsubscribe"];
+    [mock unSubscribe]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+
 //+(PMKPromise*)subscribedChannels;
 //-(PMKPromise*)subscribers;
 //-(PMKPromise*)publish:(NSDictionary *)messageContent;
@@ -168,6 +279,21 @@
 //-(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
 
 
-
+//MMXInvite
+//-(PMKPromise*)acceptWithComments:(NSString *)comments;
+//-(PMKPromise*)declineWithComments:(NSString *)comments;
+//
+//MMXMessage
+//-(PMKPromise*)send;
+//-(PMKPromise*)replyWithContent:(NSDictionary *)content;
+//-(PMKPromise*)replyAllWithContent:(NSDictionary *)content;
+//
+//MMXUser
+//-(PMKPromise*)registerWithCredential:(NSURLCredential *)credential;
+//+(PMKPromise*)logInWithCredential:(NSURLCredential *)credential;
+//+(PMKPromise*)logOut;
+//-(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential;
+//+(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit;
+//+(PMKPromise*)userForUsername:(NSString *)username;
 
 @end

@@ -59,34 +59,46 @@
 }
 
 /**
- @return NSSet *tags
+ @return void
  **/
 -(PMKPromise*) create{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self createWithSuccess:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 
 /**
- @return NSSet *tags
+ @return void
  **/
 -(PMKPromise*) delete{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self deleteWithSuccess:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 
 /**
- @return NSSet *tags
+ @return void
  **/
 -(PMKPromise*) subscribe{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self subscribeWithSuccess:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 
 /**
- @return NSSet *tags
+ @return void
  **/
 -(PMKPromise*) unSubscribe{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self unSubscribeWithSuccess:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 
