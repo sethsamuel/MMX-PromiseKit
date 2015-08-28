@@ -164,6 +164,9 @@
  **/
 -(PMKPromise*)acceptWithComments:(NSString *)comments{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self acceptWithComments:comments success:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 
@@ -172,6 +175,9 @@
  **/
 -(PMKPromise*)declineWithComments:(NSString *)comments{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self declineWithComments:comments success:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 @end

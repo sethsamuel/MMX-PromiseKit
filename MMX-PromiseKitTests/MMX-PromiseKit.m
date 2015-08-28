@@ -438,7 +438,64 @@
 
 //MMXInvite
 //-(PMKPromise*)acceptWithComments:(NSString *)comments;
+- (void)testAcceptWithComments {
+
+    id mock = OCMPartialMock([MMXInvite new]);
+    [OCMStub([mock acceptWithComments:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"acceptWithComments"];
+    [mock acceptWithComments:@"foo"]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+
+}
+
 //-(PMKPromise*)declineWithComments:(NSString *)comments;
+- (void)testDeclineWithComments {
+    
+    id mock = OCMPartialMock([MMXInvite new]);
+    [OCMStub([mock declineWithComments:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"declineWithComments"];
+    [mock declineWithComments:@"foo"]
+    .then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+    
+}
+
+
 //
 //MMXMessage
 //-(PMKPromise*)send;
