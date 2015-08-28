@@ -169,3 +169,48 @@
     }];
 }
 @end
+
+@implementation MMXUser (PromiseKit)
+/**
+ @return void
+ **/
+-(PMKPromise*)registerWithCredential:(NSURLCredential *)credential{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+/**
+ @return void
+ **/
++(PMKPromise*)logInWithCredential:(NSURLCredential *)credential{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+/**
+ @return void
+ **/
++(PMKPromise*)logOut{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+/**
+ @return void
+ **/
+-(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+/**
+ @return void
+ **/
++(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+/**
+ @return void
+ **/
++(PMKPromise*)userForUsername:(NSString *)username{
+    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    }];
+}
+@end

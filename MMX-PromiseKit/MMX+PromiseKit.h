@@ -51,3 +51,12 @@
 -(PMKPromise*)replyWithContent:(NSDictionary *)content;
 -(PMKPromise*)replyAllWithContent:(NSDictionary *)content;
 @end
+
+@interface MMXUser (PromiseKit)
+-(PMKPromise*)registerWithCredential:(NSURLCredential *)credential;
++(PMKPromise*)logInWithCredential:(NSURLCredential *)credential;
++(PMKPromise*)logOut;
+-(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential;
++(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit;
++(PMKPromise*)userForUsername:(NSString *)username;
+@end
