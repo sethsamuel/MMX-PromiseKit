@@ -198,17 +198,31 @@
     }];
 }
 /**
- @return void
+ @return NSString *messageID, PMKPromise *complete
  **/
 -(PMKPromise*)replyWithContent:(NSDictionary *)content{
-    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+        __block NSString *messageID;
+        PMKPromise *complete = [PMKPromise promiseWithResolverBlock:^(PMKResolver complete) {
+            messageID = [self replyWithContent:content success:^{
+                complete(nil);
+            } failure:complete];
+        }];
+        resolve(PMKManifold(messageID, complete));
     }];
 }
 /**
- @return void
+ @return NSString *messageID, PMKPromise *complete
  **/
 -(PMKPromise*)replyAllWithContent:(NSDictionary *)content{
-    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+        __block NSString *messageID;
+        PMKPromise *complete = [PMKPromise promiseWithResolverBlock:^(PMKResolver complete) {
+            messageID = [self replyAllWithContent:content success:^{
+                complete(nil);
+            } failure:complete];
+        }];
+        resolve(PMKManifold(messageID, complete));
     }];
 }
 @end

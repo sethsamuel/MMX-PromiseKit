@@ -589,7 +589,70 @@
     }];
 }
 //-(PMKPromise*)replyWithContent:(NSDictionary *)content;
+- (void)testReplyWithContent {
+    NSString *stubMessageID = @"1";
+    
+    id mock = OCMPartialMock([MMXMessage new]);
+    [[OCMStub([mock replyWithContent:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andReturn:stubMessageID] andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"replyWithContent"];
+    [mock replyWithContent:@{}]
+    .then(^(NSString *messageID, PMKPromise *complete){
+        XCTAssertEqualObjects(messageID, stubMessageID);
+        return complete;
+    }).then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
 //-(PMKPromise*)replyAllWithContent:(NSDictionary *)content;
+- (void)testReplyAllWithContent {
+    NSString *stubMessageID = @"1";
+    
+    id mock = OCMPartialMock([MMXMessage new]);
+    [[OCMStub([mock replyAllWithContent:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andReturn:stubMessageID] andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"replyAllWithContent"];
+    [mock replyAllWithContent:@{}]
+    .then(^(NSString *messageID, PMKPromise *complete){
+        XCTAssertEqualObjects(messageID, stubMessageID);
+        return complete;
+    }).then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+
 //
 //MMXUser
 //-(PMKPromise*)registerWithCredential:(NSURLCredential *)credential;
