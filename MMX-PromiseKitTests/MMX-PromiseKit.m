@@ -721,7 +721,7 @@
 }
 
 //-(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential;
-- (void)changePasswordWithCredential {
+- (void)testChangePasswordWithCredential {
     id mock = OCMPartialMock([MMXUser new]);
     [OCMStub([mock changePasswordWithCredential:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
         void (^successBlock)() = nil;
