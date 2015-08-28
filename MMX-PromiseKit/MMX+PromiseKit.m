@@ -184,10 +184,17 @@
 
 @implementation MMXMessage (PromiseKit)
 /**
- @return void
+ @return NSString *messageID, PMKPromise *complete
  **/
 -(PMKPromise*)send{
-    return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+        __block NSString *messageID;
+        PMKPromise *complete = [PMKPromise promiseWithResolverBlock:^(PMKResolver complete) {
+            messageID = [self sendWithSuccess:^{
+                complete(nil);
+            } failure:complete];
+        }];
+        resolve(PMKManifold(messageID, complete));
     }];
 }
 /**

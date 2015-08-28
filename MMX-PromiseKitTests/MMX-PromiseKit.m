@@ -63,6 +63,34 @@
     }];
 }
 
+- (void)testChannelsStartingWithError {
+    
+    id mock = OCMClassMock([MMXChannel class]);
+    [OCMStub([mock channelsStartingWith:[OCMArg any] limit:100 success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^errorBlock)(NSError *error) = nil;
+        [invocation getArgument:&errorBlock atIndex:5];
+        errorBlock([NSError errorWithDomain:@"TEST_ERROR" code:1 userInfo:@{}]);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"channelsStartingWith"];
+    [MMXChannel channelsStartingWith:@"" limit:100]
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"TEST_ERROR", error.domain);
+        NSLog(@"%@", error);
+
+        [expectation fulfill];
+
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+
 //+(PMKPromise*)findByTags:(NSSet*)tags;
 - (void)testFindByTags {
     NSArray *stubChannels = @[@{},@{}];
@@ -499,6 +527,67 @@
 //
 //MMXMessage
 //-(PMKPromise*)send;
+- (void)testSend {
+    NSString *stubMessageID = @"1";
+    
+    id mock = OCMPartialMock([MMXMessage new]);
+    [[OCMStub([mock sendWithSuccess:[OCMArg any] failure:[OCMArg any]]) andReturn:stubMessageID] andDo:^(NSInvocation *invocation) {
+        void (^successBlock)() = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"send"];
+    [mock send]
+    .then(^(NSString *messageID, PMKPromise *complete){
+        XCTAssertEqualObjects(messageID, stubMessageID);
+        return complete;
+    }).then(^(){
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+- (void)testSendError {
+    NSString *stubMessageID = @"1";
+    
+    id mock = OCMPartialMock([MMXMessage new]);
+    [[OCMStub([mock sendWithSuccess:[OCMArg any] failure:[OCMArg any]]) andReturn:stubMessageID] andDo:^(NSInvocation *invocation) {
+        void (^errorBlock)(NSError *error) = nil;
+        [invocation getArgument:&errorBlock atIndex:3];
+        errorBlock([NSError errorWithDomain:@"TEST_ERROR" code:1 userInfo:@{}]);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"send"];
+    [mock send]
+    .then(^(NSString *messageID, PMKPromise *complete){
+        XCTAssertEqualObjects(messageID, stubMessageID);
+        return complete;
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, @"TEST_ERROR");
+        NSLog(@"%@", error);
+
+        [expectation fulfill];
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
 //-(PMKPromise*)replyWithContent:(NSDictionary *)content;
 //-(PMKPromise*)replyAllWithContent:(NSDictionary *)content;
 //
