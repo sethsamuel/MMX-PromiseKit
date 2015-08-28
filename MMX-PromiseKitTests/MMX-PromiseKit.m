@@ -273,11 +273,168 @@
 
 
 //+(PMKPromise*)subscribedChannels;
-//-(PMKPromise*)subscribers;
-//-(PMKPromise*)publish:(NSDictionary *)messageContent;
-//-(PMKPromise*)fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;
-//-(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
+- (void)testSubscribedChannels {
+    NSArray *stubChannels = @[@{},@{}];
+    
+    id mock = OCMClassMock([MMXChannel class]);
+    [OCMStub([mock subscribedChannelsWithSuccess:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(NSArray *channels) = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock(stubChannels);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"subscribedChannels"];
+    [MMXChannel subscribedChannels]
+    .then(^(NSArray* channels){
+        XCTAssertNotNil(channels);
+        XCTAssertEqualObjects(channels, stubChannels);
+        
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
 
+}
+
+//-(PMKPromise*)subscribers;
+- (void)testSubscribers {
+    NSArray *stubSubscribers = @[@{}];
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock subscribersWithSuccess:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(int count, NSArray *subscribers) = nil;
+        [invocation getArgument:&successBlock atIndex:2];
+        successBlock(1, stubSubscribers);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"subscibers"];
+    [mock subscribers]
+    .then(^(NSNumber *count, NSArray *subscribers){
+        XCTAssertEqual(count.integerValue, 1);
+        XCTAssertNotNil(subscribers);
+        XCTAssertEqualObjects(subscribers, stubSubscribers);
+        
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+
+}
+
+//-(PMKPromise*)publish:(NSDictionary *)messageContent;
+- (void)testPublish {
+    MMXMessage *stubMessage = [MMXMessage new];
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock publish:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(MMXMessage *message) = nil;
+        [invocation getArgument:&successBlock atIndex:3];
+        successBlock(stubMessage);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"publish"];
+    [mock publish:@{}]
+    .then(^(MMXMessage *message){
+        XCTAssertNotNil(message);
+        XCTAssertEqualObjects(message, stubMessage);
+        
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+//-(PMKPromise*)fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;
+- (void)testFetchMessagesBetweenStartDate {
+    NSArray *stubMessages = @[@{},@{}];
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock fetchMessagesBetweenStartDate:[OCMArg any] endDate:[OCMArg any] limit:100 ascending:YES success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(int totalCount, NSArray *messages) = nil;
+        [invocation getArgument:&successBlock atIndex:6];
+        successBlock(2, stubMessages);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"fetchMessagesBetweenStartDate"];
+    [mock fetchMessagesBetweenStartDate:[NSDate date] endDate:[NSDate date] limit:100 ascending:YES]
+    .then(^(NSNumber *totalCount, NSArray *messages){
+        XCTAssertEqual(totalCount.integerValue, 2);
+        XCTAssertNotNil(messages);
+        XCTAssertEqualObjects(messages, stubMessages);
+        
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+//-(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
+- (void)testInviteUser {
+    MMXInvite *stubInvite = [MMXInvite new];
+    
+    id mock = OCMPartialMock([MMXChannel new]);
+    [OCMStub([mock inviteUser:[OCMArg any] comments:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]]) andDo:^(NSInvocation *invocation) {
+        void (^successBlock)(MMXInvite *invite) = nil;
+        [invocation getArgument:&successBlock atIndex:4];
+        successBlock(stubInvite);
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"inviteUser"];
+    [mock inviteUser:[MMXUser new] comments:@""]
+    .then(^(MMXInvite *invite){
+        XCTAssertNotNil(invite);
+        XCTAssertEqualObjects(invite, stubInvite);
+        
+        [expectation fulfill];
+    })
+    .catch(^(NSError *error){
+        XCTAssertNotNil(error);
+        NSLog(@"%@", error);
+        //Ignore any errors from authentication
+    })
+    .finally(^(){
+    });
+    
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
 
 //MMXInvite
 //-(PMKPromise*)acceptWithComments:(NSString *)comments;

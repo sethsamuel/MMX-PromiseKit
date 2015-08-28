@@ -103,42 +103,57 @@
 }
 
 /**
- @return NSSet *tags
+ @return NSArray *channels
  **/
 +(PMKPromise*) subscribedChannels{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [MMXChannel subscribedChannelsWithSuccess:^(NSArray *channels) {
+            resolve(channels);
+        } failure:resolve];
     }];
 }
 
 /**
- @return NSSet *tags
+ @return NSNumber *totalCount, NSArray *subscribers
  **/
 -(PMKPromise*) subscribers{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self subscribersWithSuccess:^(int totalCount, NSArray *subscribers) {
+            resolve(PMKManifold(@(totalCount), subscribers));
+        } failure:resolve];
     }];
 }
 
 /**
- @return NSSet *tags
+ @return MMXMessage *message
  **/
 -(PMKPromise*) publish:(NSDictionary *)messageContent{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self publish:messageContent success:^(MMXMessage *message) {
+            resolve(message);
+        } failure:resolve];
     }];
 }
 
 /**
- @return NSSet *tags
+ @return NSNumber *totalCount, NSArray *subscribers
  **/
 -(PMKPromise*) fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self fetchMessagesBetweenStartDate:startDate endDate:endDate limit:limit ascending:ascending success:^(int totalCount, NSArray *messages) {
+            resolve(PMKManifold(@(totalCount), messages));
+        } failure:resolve];
     }];
 }
 
 /**
- @return NSSet *tags
+ @return MMXInvite *invite
  **/
 -(PMKPromise*) inviteUser:(MMXUser *)user comments:(NSString *)comments{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self inviteUser:user comments:comments success:^(MMXInvite *invite) {
+            resolve(invite);
+        } failure:resolve];
     }];
 }
 @end
