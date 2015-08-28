@@ -16,29 +16,18 @@
 
 @interface MMXChannel (PromiseKit)
 +(PMKPromise*)channelsStartingWith:(NSString *)name limit:(int)limit;
-+(PMKPromise*) findByTags:(NSSet*)tags;
-
--(PMKPromise*) tags;
-
--(PMKPromise*) setTags:(NSSet*)tags;
-
--(PMKPromise*) create;
-
--(PMKPromise*) delete;
-
--(PMKPromise*) subscribe;
-
--(PMKPromise*) unSubscribe;
-
-+(PMKPromise*) subscribedChannels;
-
--(PMKPromise*) subscribers;
-
--(PMKPromise*) publish:(NSDictionary *)messageContent;
-
--(PMKPromise*) fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;
-
--(PMKPromise*) inviteUser:(MMXUser *)user comments:(NSString *)comments;
++(PMKPromise*)findByTags:(NSSet*)tags;
+-(PMKPromise*)tags;
+-(PMKPromise*)setTags:(NSSet*)tags;
+-(PMKPromise*)create;
+-(PMKPromise*)delete;
+-(PMKPromise*)subscribe;
+-(PMKPromise*)unSubscribe;
++(PMKPromise*)subscribedChannels;
+-(PMKPromise*)subscribers;
+-(PMKPromise*)publish:(NSDictionary *)messageContent;
+-(PMKPromise*)fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;
+-(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
 @end
 
 @interface MMXInvite (PromiseKit)

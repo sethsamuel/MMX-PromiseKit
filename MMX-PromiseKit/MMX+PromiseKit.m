@@ -48,10 +48,13 @@
 }
 
 /**
- @return NSSet *tags
+ @return void
  **/
 -(PMKPromise*) setTags:(NSSet*)tags{
     return [PMKPromise  promiseWithResolverBlock:^(PMKResolver resolve) {
+        [self setTags:tags success:^{
+            resolve(nil);
+        } failure:resolve];
     }];
 }
 
