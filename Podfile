@@ -4,12 +4,12 @@ use_frameworks!
 
 
 target 'MMX-PromiseKit' do
-    pod 'PromiseKit', '~>2.0'
+    pod 'PromiseKit', '~>2'
     pod 'MMX', '~>1.5'
 end
 
 target 'MMX-PromiseKitTests' do
-    pod 'PromiseKit', '~>2.0'
+    pod 'PromiseKit', '~>2'
     pod 'MMX', '~>1.5'
     pod 'OCMock', '~> 3.1'
 end
