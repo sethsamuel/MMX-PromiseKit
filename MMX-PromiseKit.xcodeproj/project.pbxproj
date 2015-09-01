@@ -19,6 +19,11 @@
 		FA4FC5D01B8EA98000CF0441 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5CF1B8EA98000CF0441 /* .travis.yml */; };
 		FA4FC5D21B8EAA3900CF0441 /* .coveralls.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5D11B8EAA3900CF0441 /* .coveralls.yml */; };
 		FA4FC5D61B8EAC5100CF0441 /* .slather.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5D51B8EAC5100CF0441 /* .slather.yml */; };
+		FA7509231B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */; };
+		FA7509241B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */; };
+		FA7509271B955B4000BC5AAD /* MMX-PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509251B955B4000BC5AAD /* MMX-PromiseKit.swift */; };
+		FAD300521B953F1B00AA4212 /* MMX+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD300511B953F1B00AA4212 /* MMX+PromiseKit.swift */; };
+		FAD300531B953F1B00AA4212 /* MMX+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD300511B953F1B00AA4212 /* MMX+PromiseKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,10 @@
 		FA4FC5CF1B8EA98000CF0441 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		FA4FC5D11B8EAA3900CF0441 /* .coveralls.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .coveralls.yml; sourceTree = "<group>"; };
 		FA4FC5D51B8EAC5100CF0441 /* .slather.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .slather.yml; sourceTree = "<group>"; };
+		FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+MMX_PromiseKit.swift"; sourceTree = "<group>"; };
+		FA7509251B955B4000BC5AAD /* MMX-PromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMX-PromiseKit.swift"; sourceTree = "<group>"; };
+		FAD300501B953F1B00AA4212 /* MMX-PromiseKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMX-PromiseKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		FAD300511B953F1B00AA4212 /* MMX+PromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMX+PromiseKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +141,9 @@
 				FA238F741B8E73AB00DFE4E1 /* Supporting Files */,
 				FA238FBF1B8E7C8A00DFE4E1 /* MMX+PromiseKit.h */,
 				FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */,
+				FAD300511B953F1B00AA4212 /* MMX+PromiseKit.swift */,
+				FAD300501B953F1B00AA4212 /* MMX-PromiseKitTests-Bridging-Header.h */,
+				FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */,
 			);
 			path = "MMX-PromiseKit";
 			sourceTree = "<group>";
@@ -149,6 +161,7 @@
 			children = (
 				FA238F811B8E73AB00DFE4E1 /* Supporting Files */,
 				FA4FC5CD1B8EA1EF00CF0441 /* MMX-PromiseKit.m */,
+				FA7509251B955B4000BC5AAD /* MMX-PromiseKit.swift */,
 			);
 			path = "MMX-PromiseKitTests";
 			sourceTree = "<group>";
@@ -223,7 +236,8 @@
 		FA238F681B8E73AB00DFE4E1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Seth Samuel";
 				TargetAttributes = {
 					FA238F701B8E73AB00DFE4E1 = {
@@ -358,6 +372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA238FC21B8E7C8A00DFE4E1 /* MMX+PromiseKit.m in Sources */,
+				FA7509231B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */,
+				FAD300521B953F1B00AA4212 /* MMX+PromiseKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +382,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4FC5CE1B8EA1EF00CF0441 /* MMX-PromiseKit.m in Sources */,
+				FA7509271B955B4000BC5AAD /* MMX-PromiseKit.swift in Sources */,
+				FA7509241B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */,
+				FAD300531B953F1B00AA4212 /* MMX+PromiseKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +422,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
@@ -477,6 +497,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9709C9E9819486022974C4FC /* Pods-MMX-PromiseKit.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -486,8 +507,10 @@
 				INFOPLIST_FILE = "MMX-PromiseKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sethsamuel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MMX_PromiseKit;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -495,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 785375B0A79AF06976A67F94 /* Pods-MMX-PromiseKit.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -504,6 +528,7 @@
 				INFOPLIST_FILE = "MMX-PromiseKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sethsamuel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MMX_PromiseKit;
 				SKIP_INSTALL = YES;
 			};
@@ -513,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E7C23F3EE13D876A4336FA1 /* Pods-MMX-PromiseKitTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -526,7 +552,10 @@
 				);
 				INFOPLIST_FILE = "MMX-PromiseKitTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sethsamuel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MMX-PromiseKit/MMX-PromiseKitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -534,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 28E54F25292CC91CEBB74CB1 /* Pods-MMX-PromiseKitTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -543,7 +573,9 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = "MMX-PromiseKitTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sethsamuel.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MMX-PromiseKit/MMX-PromiseKitTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
