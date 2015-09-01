@@ -22,6 +22,19 @@ public extension MMXChannel {
             )
         }
     }
+    
+    class func channelsStartingWithName (name : String, limit: Int32) -> Promise<(Int32, [MMXChannel])>{
+        return Promise { fulfill, reject in
+            self.channelsStartingWith(name, limit: limit,
+                success: { (count, channels) -> Void in
+                    fulfill(count, channels as! [MMXChannel])
+                },
+                failure : { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
 
 //    @interface MMXChannel (PromiseKit)
 //    +(PMKPromise*)channelsStartingWith:(NSString *)name limit:(int)limit;

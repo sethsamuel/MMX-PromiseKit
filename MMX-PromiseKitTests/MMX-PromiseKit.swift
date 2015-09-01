@@ -36,5 +36,27 @@ class MMX_PromiseKit : XCTestCase{
         waitForExpectationsWithTimeout(2, handler: nil)
     }
     
+    func testChannelsStartingWithName() {
+        class MockMMXChannel : MMXChannel {
+            override class func channelsStartingWith(name: String!, limit : Int32, success: ((Int32, [AnyObject]!) -> Void)!, failure: ((NSError!) -> Void)!) -> Void{
+                let stubChannels = ["stub"]
+                success(2, stubChannels)
+            }
+            
+        }
+        
+        let ex = expectationWithDescription("channelsStartingWithName")
+        
+        MockMMXChannel.channelsStartingWithName("foo", limit: 100)
+            .then{ count, channels -> Void in
+                XCTAssertEqual(count, 2, "Count equal")
+                let stubChannels = ["stub"]
+                XCTAssertEqual(channels, stubChannels, "Channels equal")
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
 }
 

@@ -8,7 +8,6 @@
 
 #import "MMX+PromiseKit.h"
 #import "PromiseKit.h"
-#import <MMX/MMX.h>
 
 @implementation MMX (PromiseKit)
 
