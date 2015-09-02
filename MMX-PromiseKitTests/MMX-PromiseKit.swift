@@ -16,6 +16,7 @@ private struct stubs{
     static let channels = ["channel"]
     static let tags = Set(["tag", ""])
     static let subscribers = ["user1"]
+    static let messageContent : [String : AnyObject] = ["Type" : 1, "Message" : "Hello"]
 }
 
 class MMX_PromiseKit : XCTestCase{
@@ -201,6 +202,31 @@ class MMX_PromiseKit : XCTestCase{
         }
         
         waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testPublish(){
+        class MockMMXChannel : MMXChannel {
+            override func publish(messageContent: [NSObject : AnyObject]!, success: ((MMXMessage!) -> Void)!, failure: ((NSError!) -> Void)!) {
+                let message = MMXMessage()
+                message.messageContent = messageContent
+                success(message)
+            }
+        }
+        
+        let ex = expectationWithDescription("publish")
+
+        
+        MockMMXChannel().publishMessageContent(stubs.messageContent)
+            .then{ message -> Void in
+                let messageKeys = message.messageContent.keys.array
+                let stubKeys = stubs.messageContent.keys.array
+                XCTAssertEqual(messageKeys, stubKeys as [NSObject], "Keys equal");
+                XCTAssertEqual(message.messageContent["Type"] as! Int, stubs.messageContent["Type"] as! Int, "Int value equal");                
+                XCTAssertEqual(message.messageContent["Message"] as! String, stubs.messageContent["Message"] as! String, "String value equal");
+                ex.fulfill()
+        }
+        waitForExpectationsWithTimeout(2, handler: nil)
+
     }
     
 }

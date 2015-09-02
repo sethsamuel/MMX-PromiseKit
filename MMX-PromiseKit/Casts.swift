@@ -1,5 +1,5 @@
 //
-//  Set+MMX_PromiseKit.swift
+//  Casts.swift
 //  MMX-PromiseKit
 //
 //  Created by Seth on 8/31/15.
@@ -16,5 +16,4 @@ extension Set{
         }
         return s
     }
-    
 }

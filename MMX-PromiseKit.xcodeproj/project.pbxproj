@@ -19,8 +19,8 @@
 		FA4FC5D01B8EA98000CF0441 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5CF1B8EA98000CF0441 /* .travis.yml */; };
 		FA4FC5D21B8EAA3900CF0441 /* .coveralls.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5D11B8EAA3900CF0441 /* .coveralls.yml */; };
 		FA4FC5D61B8EAC5100CF0441 /* .slather.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC5D51B8EAC5100CF0441 /* .slather.yml */; };
-		FA7509231B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */; };
-		FA7509241B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */; };
+		FA7509231B95573F00BC5AAD /* Casts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509221B95573F00BC5AAD /* Casts.swift */; };
+		FA7509241B95573F00BC5AAD /* Casts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509221B95573F00BC5AAD /* Casts.swift */; };
 		FA7509271B955B4000BC5AAD /* MMX-PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7509251B955B4000BC5AAD /* MMX-PromiseKit.swift */; };
 		FAD300521B953F1B00AA4212 /* MMX_PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD300511B953F1B00AA4212 /* MMX_PromiseKit.swift */; };
 		FAD300531B953F1B00AA4212 /* MMX_PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD300511B953F1B00AA4212 /* MMX_PromiseKit.swift */; };
@@ -59,7 +59,7 @@
 		FA4FC5CF1B8EA98000CF0441 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		FA4FC5D11B8EAA3900CF0441 /* .coveralls.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .coveralls.yml; sourceTree = "<group>"; };
 		FA4FC5D51B8EAC5100CF0441 /* .slather.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .slather.yml; sourceTree = "<group>"; };
-		FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+MMX_PromiseKit.swift"; sourceTree = "<group>"; };
+		FA7509221B95573F00BC5AAD /* Casts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Casts.swift; sourceTree = "<group>"; };
 		FA7509251B955B4000BC5AAD /* MMX-PromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMX-PromiseKit.swift"; sourceTree = "<group>"; };
 		FAD300501B953F1B00AA4212 /* MMX-PromiseKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMX-PromiseKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAD300511B953F1B00AA4212 /* MMX_PromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMX_PromiseKit.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				FA238FC01B8E7C8A00DFE4E1 /* MMX+PromiseKit.m */,
 				FAD300511B953F1B00AA4212 /* MMX_PromiseKit.swift */,
 				FAD300501B953F1B00AA4212 /* MMX-PromiseKitTests-Bridging-Header.h */,
-				FA7509221B95573F00BC5AAD /* Set+MMX_PromiseKit.swift */,
+				FA7509221B95573F00BC5AAD /* Casts.swift */,
 			);
 			path = "MMX-PromiseKit";
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA238FC21B8E7C8A00DFE4E1 /* MMX+PromiseKit.m in Sources */,
-				FA7509231B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */,
+				FA7509231B95573F00BC5AAD /* Casts.swift in Sources */,
 				FAD300521B953F1B00AA4212 /* MMX_PromiseKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +383,7 @@
 			files = (
 				FA4FC5CE1B8EA1EF00CF0441 /* MMX-PromiseKit.m in Sources */,
 				FA7509271B955B4000BC5AAD /* MMX-PromiseKit.swift in Sources */,
-				FA7509241B95573F00BC5AAD /* Set+MMX_PromiseKit.swift in Sources */,
+				FA7509241B95573F00BC5AAD /* Casts.swift in Sources */,
 				FAD300531B953F1B00AA4212 /* MMX_PromiseKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,7 @@ import MMX
 public extension MMXChannel {
     class func findByTags (tags : Set<String>!) -> Promise<(Int32, [MMXChannel])> {
         return Promise { fulfill, reject in
-            self.findByTags(tags.castToNSObject(),
+            self.findByTags(tags as Set<NSObject>,
                 success: { (count : Int32, channels: [AnyObject]!) -> Void in
                     fulfill(count, channels as! [MMXChannel])
                 },
@@ -118,8 +118,19 @@ public extension MMXChannel {
             })
         }
     }
+    
+    func publishMessageContent(messageContent:[String:AnyObject]!) -> Promise<MMXMessage>{
+        return Promise { fulfill, reject in
+        self.publish(messageContent as [NSObject : AnyObject],
+                success: { (message) -> Void in
+                    fulfill(message)
+                },
+                failure: { (error) -> Void in
+                    reject(error)
+            })
+        }
+    }
 
-//    -(PMKPromise*)subscribers;
 //    -(PMKPromise*)publish:(NSDictionary *)messageContent;
 //    -(PMKPromise*)fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;
 //    -(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
