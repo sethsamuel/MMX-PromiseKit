@@ -59,10 +59,46 @@ public extension MMXChannel {
         }
     }
     
-//    -(PMKPromise*)create;
-//    -(PMKPromise*)delete;
-//    -(PMKPromise*)subscribe;
-//    -(PMKPromise*)unSubscribe;
+    func create() -> Promise<Void> {
+        return Promise {fulfill, reject in
+            self.createWithSuccess({ () -> Void in
+                fulfill()
+            }, failure: { (error) -> Void in
+                reject(error)
+            })
+        }
+    }
+
+    func delete() -> Promise<Void> {
+        return Promise {fulfill, reject in
+            self.deleteWithSuccess({ () -> Void in
+                fulfill()
+                }, failure: { (error) -> Void in
+                    reject(error)
+            })
+        }
+    }
+
+    func subscribe() -> Promise<Void> {
+        return Promise {fulfill, reject in
+            self.subscribeWithSuccess({ () -> Void in
+                fulfill()
+                }, failure: { (error) -> Void in
+                    reject(error)
+            })
+        }
+    }
+
+    func unSubscribe() -> Promise<Void> {
+        return Promise {fulfill, reject in
+            self.unSubscribeWithSuccess({ () -> Void in
+                fulfill()
+                }, failure: { (error) -> Void in
+                    reject(error)
+            })
+        }
+    }
+
 //    +(PMKPromise*)subscribedChannels;
 //    -(PMKPromise*)subscribers;
 //    -(PMKPromise*)publish:(NSDictionary *)messageContent;

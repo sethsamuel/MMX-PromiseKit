@@ -96,5 +96,74 @@ class MMX_PromiseKit : XCTestCase{
         waitForExpectationsWithTimeout(2, handler: nil)
     }
     
+    func testCreate(){
+        class MockMMXChannel : MMXChannel {
+            override func createWithSuccess(success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        
+        let ex = expectationWithDescription("create")
+        
+        MockMMXChannel().create()
+            .then{
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testDelete(){
+        class MockMMXChannel : MMXChannel {
+            override func deleteWithSuccess(success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        
+        let ex = expectationWithDescription("delete")
+        
+        MockMMXChannel().delete()
+            .then{
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testSubscribe(){
+        class MockMMXChannel : MMXChannel {
+            override func subscribeWithSuccess(success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        
+        let ex = expectationWithDescription("subscribe")
+        
+        MockMMXChannel().subscribe()
+            .then{
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testUnSubscribe(){
+        class MockMMXChannel : MMXChannel {
+            override func unSubscribeWithSuccess(success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        
+        let ex = expectationWithDescription("unSubscribe")
+        
+        MockMMXChannel().unSubscribe()
+            .then{
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+        
+    }
+    
 }
 
