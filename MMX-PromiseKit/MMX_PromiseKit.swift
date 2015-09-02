@@ -46,8 +46,19 @@ public extension MMXChannel {
         }
     }
 
-//    -(PMKPromise*)tags;
-//    -(PMKPromise*)setTags:(NSSet*)tags;
+    func setTags(tags : Set<String>) -> Promise<Void> {
+        return Promise {fulfill, reject in
+            self.setTags(tags.castToNSObject()
+                , success: { () -> Void in
+                    fulfill()
+                }
+                , failure : { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
+    
 //    -(PMKPromise*)create;
 //    -(PMKPromise*)delete;
 //    -(PMKPromise*)subscribe;

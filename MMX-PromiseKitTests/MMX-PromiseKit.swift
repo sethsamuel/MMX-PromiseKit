@@ -79,5 +79,22 @@ class MMX_PromiseKit : XCTestCase{
         waitForExpectationsWithTimeout(2, handler: nil)
     }
     
+    func testSetTags(){
+        class MockMMXChannel : MMXChannel {
+            override func setTags(tags: Set<NSObject>!, success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success();
+            }
+        }
+        
+        let ex = expectationWithDescription("setTags")
+        
+        MockMMXChannel().setTags(Set(["newtag"]))
+            .then{ 
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
 }
 
