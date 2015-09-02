@@ -98,8 +98,27 @@ public extension MMXChannel {
             })
         }
     }
+    
+    class func subscribedChannels() -> Promise<[MMXChannel]>{
+        return Promise { fulfill, reject in
+            self.subscribedChannelsWithSuccess({ channels -> Void in
+                fulfill(channels as! [MMXChannel])
+            }, failure: { (error) -> Void in
+                reject(error)
+            })
+        }
+    }
+    
+    func subscribers() -> Promise<(Int32,[MMXUser])>{
+        return Promise { fulfill, reject in
+            self.subscribersWithSuccess({ (count, subscribers) -> Void in
+                fulfill(count, subscribers as! [MMXUser])
+            }, failure: { (error) -> Void in
+                reject(error)
+            })
+        }
+    }
 
-//    +(PMKPromise*)subscribedChannels;
 //    -(PMKPromise*)subscribers;
 //    -(PMKPromise*)publish:(NSDictionary *)messageContent;
 //    -(PMKPromise*)fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;

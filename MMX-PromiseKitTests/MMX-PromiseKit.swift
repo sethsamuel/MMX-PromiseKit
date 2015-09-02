@@ -15,6 +15,7 @@ import XCTest
 private struct stubs{
     static let channels = ["channel"]
     static let tags = Set(["tag", ""])
+    static let subscribers = ["user1"]
 }
 
 class MMX_PromiseKit : XCTestCase{
@@ -163,6 +164,43 @@ class MMX_PromiseKit : XCTestCase{
         
         waitForExpectationsWithTimeout(2, handler: nil)
         
+    }
+    
+    func testSubscribedChannels(){
+        class MockMMXChannel : MMXChannel {
+            override class func subscribedChannelsWithSuccess(success: (([AnyObject]?) -> Void)!, failure: ((NSError!) -> Void)!) {
+                success(stubs.channels)
+            }
+        }
+        
+        let ex = expectationWithDescription("subscribedChannelsWithSuccess")
+        
+        MockMMXChannel.subscribedChannels()
+            .then{ channels -> Void in
+                XCTAssertEqual(channels, stubs.channels, "Channels equal")
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testSubscribers(){
+        class MockMMXChannel : MMXChannel {
+            override func subscribersWithSuccess(success: ((Int32, [AnyObject]!) -> Void)!, failure: ((NSError!) -> Void)!) {
+                success(2, stubs.subscribers)
+            }
+        }
+        
+        let ex = expectationWithDescription("subscribers")
+        
+        MockMMXChannel().subscribers()
+            .then{ count, subscribers -> Void in
+                XCTAssertEqual(count, 2, "Count equal")
+                XCTAssertEqual(subscribers, stubs.subscribers, "Subscribers equal")
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
     }
     
 }
