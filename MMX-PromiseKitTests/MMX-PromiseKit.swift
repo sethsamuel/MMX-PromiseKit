@@ -12,15 +12,20 @@ import MMX_PromiseKit
 import OCMock
 import XCTest
 
+private struct stubs{
+    static let channels = ["channel"]
+    static let tags = Set(["tag", ""])
+}
+
 class MMX_PromiseKit : XCTestCase{
-    
+
     func testFindByTags(){
+
         class MockMMXChannel : MMXChannel {
             override class func findByTags(tags: Set<NSObject>!, success: ((Int32, [AnyObject]!) -> Void)!, failure: ((NSError!) -> Void)!) -> Void{
-                let stubChannels = ["stub"]
-                success(2, stubChannels)
+                success(2, stubs.channels)
             }
-
+            
         }
 
         let ex = expectationWithDescription("findByTags")
@@ -28,8 +33,7 @@ class MMX_PromiseKit : XCTestCase{
         MockMMXChannel.findByTags(["foo"])
             .then{ count, channels -> Void in
                 XCTAssertEqual(count, 2, "Count equal")
-                let stubChannels = ["stub"]
-                XCTAssertEqual(channels, stubChannels, "Channels equal")
+                XCTAssertEqual(channels, stubs.channels, "Channels equal")
                 ex.fulfill()
         }
         
@@ -39,8 +43,7 @@ class MMX_PromiseKit : XCTestCase{
     func testChannelsStartingWithName() {
         class MockMMXChannel : MMXChannel {
             override class func channelsStartingWith(name: String!, limit : Int32, success: ((Int32, [AnyObject]!) -> Void)!, failure: ((NSError!) -> Void)!) -> Void{
-                let stubChannels = ["stub"]
-                success(2, stubChannels)
+                success(2, stubs.channels)
             }
             
         }
@@ -50,8 +53,26 @@ class MMX_PromiseKit : XCTestCase{
         MockMMXChannel.channelsStartingWithName("foo", limit: 100)
             .then{ count, channels -> Void in
                 XCTAssertEqual(count, 2, "Count equal")
-                let stubChannels = ["stub"]
-                XCTAssertEqual(channels, stubChannels, "Channels equal")
+                XCTAssertEqual(channels, stubs.channels, "Channels equal")
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testTags(){
+        class MockMMXChannel : MMXChannel {
+            override func tagsWithSuccess(success: ((Set<NSObject>!) -> Void)!, failure: ((NSError!) -> Void)!) {
+                success(stubs.tags)
+            }
+            
+        }
+        
+        let ex = expectationWithDescription("tags")
+        
+        MockMMXChannel().tags()
+            .then{ tags -> Void in
+                XCTAssertEqual(tags, stubs.tags, "Tags equal")
                 ex.fulfill()
         }
         

@@ -35,10 +35,17 @@ public extension MMXChannel {
             )
         }
     }
+    
+    func tags() -> Promise<Set<String>>{
+        return Promise {fulfill, reject in
+            self.tagsWithSuccess({ (tags : Set<NSObject>!) -> Void in
+                fulfill(tags as! Set<String>)
+            }, failure: { (error) -> Void in
+                reject(error)
+            })
+        }
+    }
 
-//    @interface MMXChannel (PromiseKit)
-//    +(PMKPromise*)channelsStartingWith:(NSString *)name limit:(int)limit;
-//    +(PMKPromise*)findByTags:(NSSet*)tags;
 //    -(PMKPromise*)tags;
 //    -(PMKPromise*)setTags:(NSSet*)tags;
 //    -(PMKPromise*)create;
