@@ -204,7 +204,7 @@ class MMX_PromiseKit : XCTestCase{
         waitForExpectationsWithTimeout(2, handler: nil)
     }
     
-    func testPublish(){
+    func testPublishMessageContent(){
         class MockMMXChannel : MMXChannel {
             override func publish(messageContent: [NSObject : AnyObject]!, success: ((MMXMessage!) -> Void)!, failure: ((NSError!) -> Void)!) {
                 let message = MMXMessage()
@@ -227,6 +227,36 @@ class MMX_PromiseKit : XCTestCase{
         }
         waitForExpectationsWithTimeout(2, handler: nil)
 
+    }
+    
+    func testFetchMessagesBetweenStartDate(){
+        class MockMMXChannel : MMXChannel {
+            override func fetchMessagesBetweenStartDate(startDate: NSDate!, endDate: NSDate!, limit: Int32, ascending: Bool, success: ((Int32, [AnyObject]!) -> Void)!, failure: ((NSError!) -> Void)!) {
+                let message = MMXMessage()
+                message.messageContent = stubs.messageContent
+                success(1, [message])
+            }
+        }
+        
+        let ex = expectationWithDescription("fetchMessagesBetweenStartDate")
+        
+        
+        MockMMXChannel().fetchMessagesBetweenStartDate(NSDate(), endDate: NSDate(), limit: 1, ascending: true)
+            .then{ count, messages -> Void in
+                XCTAssertEqual(count, 1, "Count equal")
+                if let message = messages.first{
+                    let messageKeys = message.messageContent.keys.array
+                    let stubKeys = stubs.messageContent.keys.array
+                    XCTAssertEqual(messageKeys, stubKeys as [NSObject], "Keys equal");
+                    XCTAssertEqual(message.messageContent["Type"] as! Int, stubs.messageContent["Type"] as! Int, "Int value equal");
+                    XCTAssertEqual(message.messageContent["Message"] as! String, stubs.messageContent["Message"] as! String, "String value equal");
+                }else{
+                    XCTAssert(false, "Message returned")
+                }
+                ex.fulfill()
+        }
+        waitForExpectationsWithTimeout(2, handler: nil)
+        
     }
     
 }

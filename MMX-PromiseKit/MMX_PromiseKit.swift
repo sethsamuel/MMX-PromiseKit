@@ -131,7 +131,19 @@ public extension MMXChannel {
         }
     }
 
-//    -(PMKPromise*)publish:(NSDictionary *)messageContent;
+    func fetchMessagesBetweenStartDate(startDate : NSDate, endDate : NSDate, limit : Int32, ascending: Bool) -> Promise<(Int32, [MMXMessage])>{
+        return Promise { fulfill, reject in
+            self.fetchMessagesBetweenStartDate(startDate, endDate: endDate, limit: limit, ascending: ascending, success: { (count, messages) -> Void in
+                fulfill(count, messages as! [MMXMessage])
+                },
+                failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
+    
+
 //    -(PMKPromise*)fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;
 //    -(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
 //    @end
