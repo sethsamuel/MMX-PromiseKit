@@ -143,8 +143,20 @@ public extension MMXChannel {
         }
     }
     
+    func inviteUser(user : MMXUser, comments : String) -> (String, Promise<MMXInvite>){
+        let (promise, fulfill, reject) = Promise<MMXInvite>.defer()
+        let messageId = self.inviteUser(user, comments: comments,
+            success: { (invite) -> Void in
+                fulfill(invite)
+            },
+            failure: { (error) -> Void in
+                reject(error)
+            }
+        )
 
-//    -(PMKPromise*)fetchMessagesBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate limit:(int)limit ascending:(BOOL)ascending;
+        return (messageId, promise)
+    }
+
 //    -(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
 //    @end
 //    

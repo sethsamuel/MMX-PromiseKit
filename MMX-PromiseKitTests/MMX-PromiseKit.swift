@@ -259,5 +259,25 @@ class MMX_PromiseKit : XCTestCase{
         
     }
     
+    func testInviteUser(){
+        class MockMMXChannel : MMXChannel {
+            override func inviteUser(user: MMXUser!, comments: String!, success: ((MMXInvite!) -> Void)!, failure: ((NSError!) -> Void)!) -> String! {
+                success(MMXInvite())
+                return "1"
+            }
+        }
+        
+        let ex = expectationWithDescription("inviteUser")
+        
+        let (messageId, promise) = MockMMXChannel().inviteUser(MMXUser(), comments: "foo")
+            promise
+            .then{ invite -> Void in
+                XCTAssertNotNil(invite, "Invite not nil")
+                ex.fulfill()
+        }
+        XCTAssertEqual(messageId, "1", "Message id returned")
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
 }
 
