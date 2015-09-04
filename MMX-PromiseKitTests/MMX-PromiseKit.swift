@@ -279,5 +279,37 @@ class MMX_PromiseKit : XCTestCase{
         waitForExpectationsWithTimeout(2, handler: nil)
     }
     
+    func testAcceptWithComments(){
+        class MockMMXInvite : MMXInvite{
+            override func acceptWithComments(comments: String!, success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        let ex = expectationWithDescription("acceptWithComments")
+        
+        MockMMXInvite().acceptWithComments("foo")
+            .then{ invite -> Void in
+                ex.fulfill()
+        }
+        waitForExpectationsWithTimeout(2, handler: nil)
+        
+    }
+
+    func testDeclineWithComments(){
+        class MockMMXInvite : MMXInvite{
+            override func declineWithComments(comments: String!, success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        let ex = expectationWithDescription("declineWithComments")
+        
+        MockMMXInvite().declineWithComments("foo")
+            .then{ invite -> Void in
+                ex.fulfill()
+        }
+        waitForExpectationsWithTimeout(2, handler: nil)
+        
+    }
+
 }
 

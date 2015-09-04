@@ -157,9 +157,35 @@ public extension MMXChannel {
         return (messageId, promise)
     }
 
-//    -(PMKPromise*)inviteUser:(MMXUser *)user comments:(NSString *)comments;
-//    @end
-//    
+}
+
+public extension MMXInvite{
+    func acceptWithComments(comments : String) -> Promise<Void>{
+        return Promise { fulfill, reject in
+            self.acceptWithComments(comments,
+                success: { () -> Void in
+                    fulfill()
+                }, failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
+
+    func declineWithComments(comments : String) -> Promise<Void>{
+        return Promise { fulfill, reject in
+            self.declineWithComments(comments,
+                success: { () -> Void in
+                    fulfill()
+                }, failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
+
+}
+//
 //    @interface MMXInvite (PromiseKit)
 //    -(PMKPromise*)acceptWithComments:(NSString *)comments;
 //    -(PMKPromise*)declineWithComments:(NSString *)comments;
@@ -179,4 +205,4 @@ public extension MMXChannel {
 //    +(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit;
 //    +(PMKPromise*)userForUsername:(NSString *)username;
 //    @end
-}
+
