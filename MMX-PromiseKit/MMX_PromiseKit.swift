@@ -185,11 +185,23 @@ public extension MMXInvite{
     }
 
 }
-//
-//    @interface MMXInvite (PromiseKit)
-//    -(PMKPromise*)acceptWithComments:(NSString *)comments;
-//    -(PMKPromise*)declineWithComments:(NSString *)comments;
-//    @end
+
+public extension MMXMessage{
+    func send() -> (String, Promise<Void>){
+        let (promise, fulfill, reject) = Promise<Void>.defer()
+        let messageId = self.sendWithSuccess(
+            { () -> Void in
+                fulfill()
+            },
+            failure: { (error) -> Void in
+                reject(error)
+            }
+        )
+        
+        return (messageId, promise)
+    }
+}
+
 //    
 //    @interface MMXMessage (PromiseKit)
 //    -(PMKPromise*)send;

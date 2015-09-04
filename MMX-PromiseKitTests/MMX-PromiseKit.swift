@@ -19,7 +19,7 @@ private struct stubs{
     static let messageContent : [String : AnyObject] = ["Type" : 1, "Message" : "Hello"]
 }
 
-class MMX_PromiseKit : XCTestCase{
+class MMX_PromiseKit_MMXChannel : XCTestCase{
 
     func testFindByTags(){
 
@@ -278,7 +278,10 @@ class MMX_PromiseKit : XCTestCase{
         XCTAssertEqual(messageId, "1", "Message id returned")
         waitForExpectationsWithTimeout(2, handler: nil)
     }
-    
+}
+
+class MMX_PromiseKit_MMXInvite : XCTestCase{
+
     func testAcceptWithComments(){
         class MockMMXInvite : MMXInvite{
             override func acceptWithComments(comments: String!, success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
@@ -309,6 +312,28 @@ class MMX_PromiseKit : XCTestCase{
         }
         waitForExpectationsWithTimeout(2, handler: nil)
         
+    }
+}
+
+class MMX_PromiseKit_MMXMessage : XCTestCase{
+
+    func testSend(){
+        class MockMMXMessage : MMXMessage{
+            override func sendWithSuccess(success: (() -> Void)!, failure: ((NSError!) -> Void)!) -> String! {
+                success()
+                return "1"
+            }
+        }
+        
+        let ex = expectationWithDescription("send")
+        
+        let (messageId, promise) = MockMMXMessage().send()
+        promise
+            .then{
+                ex.fulfill()
+        }
+        XCTAssertEqual(messageId, "1", "Message id returned")
+        waitForExpectationsWithTimeout(2, handler: nil)
     }
 
 }
