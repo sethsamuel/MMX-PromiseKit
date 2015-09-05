@@ -428,4 +428,60 @@ class MMX_PromiseKit_MMXUser : XCTestCase{
         
         waitForExpectationsWithTimeout(2, handler: nil)
     }
+    
+    func testChangePasswordWithCredential(){
+        class MockMMXUser : MMXUser{
+            override func changePasswordWithCredential(credential: NSURLCredential!, success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        
+        let ex = expectationWithDescription("changePasswordWithCredential")
+        
+        MockMMXUser().changePasswordWithCredential(NSURLCredential())
+            .then{
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testFindByDisplayName(){
+        class MockMMXUser : MMXUser {
+            override class func findByDisplayName(displayName : String, limit : Int32, success: ((Int32, [AnyObject]!) -> Void)!, failure: ((NSError!) -> Void)!) {
+                success(2, [stubs.user])
+            }
+        }
+        
+        let ex = expectationWithDescription("findByDisplayName")
+        
+        MockMMXUser.findByDisplayName("name", limit: 10)
+            .then{ count, users -> Void in
+                XCTAssertEqual(count, 2, "Count equal")
+                XCTAssertEqual(users, [stubs.user], "Users equal")
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+        
+    }
+    
+    func testUserForUsername(){
+        class MockMMXUser : MMXUser {
+            override class func userForUsername(username : String, success: ((MMXUser!) -> Void)!, failure: ((NSError!) -> Void)!) {
+                success(stubs.user)
+            }
+        }
+        
+        let ex = expectationWithDescription("userForUsername")
+        
+        MockMMXUser.userForUsername("name")
+            .then{ user -> Void in
+                XCTAssertEqual(user, stubs.user, "User equal")
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+        
+    }
 }

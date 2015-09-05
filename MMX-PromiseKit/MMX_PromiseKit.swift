@@ -265,12 +265,47 @@ public extension MMXUser{
             )
         }
     }
+    
+    func changePasswordWithCredential(credential : NSURLCredential) -> Promise<Void>{
+        return Promise { fulfill, reject in
+            self.changePasswordWithCredential(credential,
+                success: { () -> Void in
+                    fulfill()
+                }, failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
+    
+    class func findByDisplayName(displayName : String, limit : Int32) -> Promise<(Int32, [MMXUser])>{
+        return Promise { fulfill, reject in
+            self.findByDisplayName(displayName, limit: limit,
+                success: { (count, users) -> Void in
+                    fulfill(count, users as! [MMXUser])
+                },
+                failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
+    
+    class func userForUsername(username : String) -> Promise<MMXUser>{
+        return Promise { fulfill, reject in
+            self.userForUsername(username,
+                success: { (user) -> Void in
+                    fulfill(user)
+                },
+                failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
 }
 
 //    @interface MMXUser (PromiseKit)
-//    +(PMKPromise*)logOut;
-//    -(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential;
-//    +(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit;
 //    +(PMKPromise*)userForUsername:(NSString *)username;
 //    @end
 
