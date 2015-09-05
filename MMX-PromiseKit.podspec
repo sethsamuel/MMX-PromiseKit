@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MMX-PromiseKit"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "PromiseKit category for Magnet Messaging (MMX)."
 
   s.description  = <<-DESC
-                    PromiseKit wrappers for Magnet Messaging (MMX) library. All asynchronous methods have been updated to return promises.
+                    PromiseKit wrappers for Magnet Messaging (MMX) library. All asynchronous methods have been updated to return promises. Includes both Objective-C and Swift methods.
                    DESC
 
   s.homepage     = "https://github.com/sethsamuel/MMX-PromiseKit"
