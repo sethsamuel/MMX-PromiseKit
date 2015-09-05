@@ -230,13 +230,31 @@ public extension MMXMessage{
     }
 }
 
-//    
-//    @interface MMXMessage (PromiseKit)
-//    -(PMKPromise*)send;
-//    -(PMKPromise*)replyWithContent:(NSDictionary *)content;
-//    -(PMKPromise*)replyAllWithContent:(NSDictionary *)content;
-//    @end
-//    
+public extension MMXUser{
+    func registerWithCredential(credential : NSURLCredential) -> Promise<Void>{
+        return Promise { fulfill, reject in
+            self.registerWithCredential(credential,
+                success: { () -> Void in
+                    fulfill()
+                }, failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
+    
+    class func logInWithCredential(credential : NSURLCredential) -> Promise<MMXUser>{
+        return Promise { fulfill, reject in
+            self.logInWithCredential(credential,
+                success: { (user) -> Void in
+                    fulfill(user)
+                }, failure: { (error) -> Void in
+                    reject(error)
+            })
+        }
+    }
+}
+
 //    @interface MMXUser (PromiseKit)
 //    -(PMKPromise*)registerWithCredential:(NSURLCredential *)credential;
 //    +(PMKPromise*)logInWithCredential:(NSURLCredential *)credential;

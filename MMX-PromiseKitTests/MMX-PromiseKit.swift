@@ -17,6 +17,7 @@ private struct stubs{
     static let tags = Set(["tag", ""])
     static let subscribers = ["user1"]
     static let messageContent : [String : AnyObject] = ["Type" : 1, "Message" : "Hello"]
+    static let user = MMXUser()
 }
 
 class MMX_PromiseKit_MMXChannel : XCTestCase{
@@ -375,3 +376,39 @@ class MMX_PromiseKit_MMXMessage : XCTestCase{
     }
 }
 
+class MMX_PromiseKit_MMXUser : XCTestCase{
+    func testRegisterWithCredential(){
+        class MockMMXUser : MMXUser{
+            override func registerWithCredential(credential: NSURLCredential!, success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        
+        let ex = expectationWithDescription("registerWithCredential")
+        
+        MockMMXUser().registerWithCredential(NSURLCredential())
+            .then{
+                ex.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testLogInWithCredential(){
+        class MockMMXUser : MMXUser{
+            override class func logInWithCredential(credential: NSURLCredential!, success: ((MMXUser) -> Void)!, failure: ((NSError!) -> Void)!) {
+                success(stubs.user)
+            }
+        }
+        
+        let ex = expectationWithDescription("logInWithCredential")
+        
+        MockMMXUser.logInWithCredential(NSURLCredential())
+            .then{ user -> Void in
+                XCTAssertEqual(user, stubs.user, "User returned")
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+}
