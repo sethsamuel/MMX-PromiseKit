@@ -253,11 +253,21 @@ public extension MMXUser{
             })
         }
     }
+    
+    class func logOut() -> Promise<Void>{
+        return Promise { fulfill, reject in
+            self.logOutWithSuccess({ () -> Void in
+                fulfill()
+                },
+                failure: { (error) -> Void in
+                    reject(error)
+                }
+            )
+        }
+    }
 }
 
 //    @interface MMXUser (PromiseKit)
-//    -(PMKPromise*)registerWithCredential:(NSURLCredential *)credential;
-//    +(PMKPromise*)logInWithCredential:(NSURLCredential *)credential;
 //    +(PMKPromise*)logOut;
 //    -(PMKPromise*)changePasswordWithCredential:(NSURLCredential *)credential;
 //    +(PMKPromise*)findByDisplayName:(NSString *)displayName limit:(int)limit;

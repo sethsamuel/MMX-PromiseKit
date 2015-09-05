@@ -411,4 +411,21 @@ class MMX_PromiseKit_MMXUser : XCTestCase{
         
         waitForExpectationsWithTimeout(2, handler: nil)
     }
+    
+    func testLogout(){
+        class MockMMXUser : MMXUser{
+            override class func logOutWithSuccess(success: (() -> Void)!, failure: ((NSError!) -> Void)!) {
+                success()
+            }
+        }
+        
+        let ex = expectationWithDescription("logOut")
+        
+        MockMMXUser.logOut()
+            .then{
+                ex.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
 }
