@@ -200,6 +200,34 @@ public extension MMXMessage{
         
         return (messageId, promise)
     }
+    
+    func replyWithContent(content : [String:AnyObject]!) -> (String, Promise<Void>){
+        let (promise, fulfill, reject) = Promise<Void>.defer()
+        let messageId = self.replyWithContent(content,
+            success: { () -> Void in
+                fulfill()
+            },
+            failure: { (error) -> Void in
+                reject(error)
+            }
+        )
+        
+        return (messageId, promise)
+    }
+    
+    func replyAllWithContent(content : [String:AnyObject]!) -> (String, Promise<Void>){
+        let (promise, fulfill, reject) = Promise<Void>.defer()
+        let messageId = self.replyAllWithContent(content,
+            success: { () -> Void in
+                fulfill()
+            },
+            failure: { (error) -> Void in
+                reject(error)
+            }
+        )
+        
+        return (messageId, promise)
+    }
 }
 
 //    

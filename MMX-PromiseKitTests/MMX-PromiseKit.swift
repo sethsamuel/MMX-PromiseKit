@@ -335,6 +335,43 @@ class MMX_PromiseKit_MMXMessage : XCTestCase{
         XCTAssertEqual(messageId, "1", "Message id returned")
         waitForExpectationsWithTimeout(2, handler: nil)
     }
-
+    
+    func testReplyWithContent(){
+        class MockMMXMessage : MMXMessage{
+            override func replyWithContent(content : [NSObject:AnyObject], success: (() -> Void)!, failure: ((NSError!) -> Void)!) -> String! {
+                success()
+                return "1"
+            }
+        }
+        
+        let ex = expectationWithDescription("replyWithContent")
+        
+        let (messageId, promise) = MockMMXMessage().replyWithContent(["foo":"bar"])
+        promise
+            .then{
+                ex.fulfill()
+        }
+        XCTAssertEqual(messageId, "1", "Message id returned")
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
+    
+    func testReplyAllWithContent(){
+        class MockMMXMessage : MMXMessage{
+            override func replyAllWithContent(content : [NSObject:AnyObject], success: (() -> Void)!, failure: ((NSError!) -> Void)!) -> String! {
+                success()
+                return "1"
+            }
+        }
+        
+        let ex = expectationWithDescription("replyAllWithContent")
+        
+        let (messageId, promise) = MockMMXMessage().replyAllWithContent(["foo":"bar"])
+        promise
+            .then{
+                ex.fulfill()
+        }
+        XCTAssertEqual(messageId, "1", "Message id returned")
+        waitForExpectationsWithTimeout(2, handler: nil)
+    }
 }
 
