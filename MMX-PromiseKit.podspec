@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MMX-PromiseKit"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "PromiseKit category for Magnet Messaging (MMX)."
 
   s.description  = <<-DESC
